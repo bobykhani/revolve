@@ -1,0 +1,576 @@
+default_experiment displacement_velocity_hill ini avg  0.0353290277188621
+default_experiment_plane displacement_velocity_hill fin avg  0.0508030443066409
+default_experiment_plane iniVSfin displacement_velocity_hill wilcox p:  0
+default_experiment_plane iniVSfin displacement_velocity_hill wilcox est:  0
+default_experiment displacement_velocity_hill  Mann-Kendall median p 0.7205
+default_experiment displacement_velocity_hill  Mann-Kendall median s -0.3578
+default_experiment head_balance ini avg  0.977883160302203
+default_experiment_plane head_balance fin avg  0.991213293784194
+default_experiment_plane iniVSfin head_balance wilcox p:  0
+default_experiment_plane iniVSfin head_balance wilcox est:  0
+default_experiment head_balance  Mann-Kendall median p 0.4743
+default_experiment head_balance  Mann-Kendall median s -0.7155
+default_experiment contacts ini avg  47.0211111111111
+default_experiment_plane contacts fin avg  27.6
+default_experiment_plane iniVSfin contacts wilcox p:  0
+default_experiment_plane iniVSfin contacts wilcox est:  400
+default_experiment contacts  Mann-Kendall median p 0.1524
+default_experiment contacts  Mann-Kendall median s -1.4311
+default_experiment displacement_velocity ini avg  0.000728218144974332
+default_experiment_plane displacement_velocity fin avg  0.000642033975111292
+default_experiment_plane iniVSfin displacement_velocity wilcox p:  0
+default_experiment_plane iniVSfin displacement_velocity wilcox est:  400
+default_experiment displacement_velocity  Mann-Kendall median p 0.2831
+default_experiment displacement_velocity  Mann-Kendall median s 1.0733
+default_experiment branching ini avg  0.166666666666667
+default_experiment_plane branching fin avg  0
+default_experiment_plane iniVSfin branching wilcox p:  0
+default_experiment_plane iniVSfin branching wilcox est:  400
+default_experiment branching  Mann-Kendall median p 0.0079
+default_experiment branching  Mann-Kendall median s -2.6582
+default_experiment branching_modules_count ini avg  0.6
+default_experiment_plane branching_modules_count fin avg  0
+default_experiment_plane iniVSfin branching_modules_count wilcox p:  0
+default_experiment_plane iniVSfin branching_modules_count wilcox est:  400
+default_experiment branching_modules_count  Mann-Kendall median p 0.0042
+default_experiment branching_modules_count  Mann-Kendall median s -2.8627
+default_experiment limbs ini avg  0.598333333333333
+default_experiment_plane limbs fin avg  0.5
+default_experiment_plane iniVSfin limbs wilcox p:  0
+default_experiment_plane iniVSfin limbs wilcox est:  400
+default_experiment limbs  Mann-Kendall median p 0.0389
+default_experiment limbs  Mann-Kendall median s -2.0655
+default_experiment extremities ini avg  4
+default_experiment_plane extremities fin avg  3
+default_experiment_plane iniVSfin extremities wilcox p:  0
+default_experiment_plane iniVSfin extremities wilcox est:  400
+default_experiment extremities  Mann-Kendall median p 0.0236
+default_experiment extremities  Mann-Kendall median s -2.2634
+default_experiment length_of_limbs ini avg  0.537875457875458
+default_experiment_plane length_of_limbs fin avg  0.571428571428571
+default_experiment_plane iniVSfin length_of_limbs wilcox p:  0
+default_experiment_plane iniVSfin length_of_limbs wilcox est:  0
+default_experiment length_of_limbs  Mann-Kendall median p 0.0725
+default_experiment length_of_limbs  Mann-Kendall median s 1.7961
+default_experiment extensiveness ini avg  3.2
+default_experiment_plane extensiveness fin avg  4
+default_experiment_plane iniVSfin extensiveness wilcox p:  0
+default_experiment_plane iniVSfin extensiveness wilcox est:  0
+default_experiment extensiveness  Mann-Kendall median p 0.1008
+default_experiment extensiveness  Mann-Kendall median s 1.6409
+default_experiment coverage ini avg  0.598095238095238
+default_experiment_plane coverage fin avg  0.6
+default_experiment_plane iniVSfin coverage wilcox p:  0
+default_experiment_plane iniVSfin coverage wilcox est:  0
+default_experiment coverage  Mann-Kendall median p 0.9284
+default_experiment coverage  Mann-Kendall median s 0.0898
+default_experiment joints ini avg  0.273919413919414
+default_experiment_plane joints fin avg  0.428571428571429
+default_experiment_plane iniVSfin joints wilcox p:  0
+default_experiment_plane iniVSfin joints wilcox est:  0
+default_experiment joints  Mann-Kendall median p 0.0491
+default_experiment joints  Mann-Kendall median s 1.9677
+default_experiment hinge_count ini avg  4.6
+default_experiment_plane hinge_count fin avg  6
+default_experiment_plane iniVSfin hinge_count wilcox p:  0
+default_experiment_plane iniVSfin hinge_count wilcox est:  0
+default_experiment hinge_count  Mann-Kendall median p 0.0491
+default_experiment hinge_count  Mann-Kendall median s 1.9677
+default_experiment active_hinges_count ini avg  2.4
+default_experiment_plane active_hinges_count fin avg  3
+default_experiment_plane iniVSfin active_hinges_count wilcox p:  0
+default_experiment_plane iniVSfin active_hinges_count wilcox est:  0
+default_experiment active_hinges_count  Mann-Kendall median p 0.1008
+default_experiment active_hinges_count  Mann-Kendall median s 1.6409
+default_experiment brick_count ini avg  3.8
+default_experiment_plane brick_count fin avg  2
+default_experiment_plane iniVSfin brick_count wilcox p:  0
+default_experiment_plane iniVSfin brick_count wilcox est:  400
+default_experiment brick_count  Mann-Kendall median p 0.003
+default_experiment brick_count  Mann-Kendall median s -2.9635
+default_experiment touch_sensor_count ini avg  2
+default_experiment_plane touch_sensor_count fin avg  0
+default_experiment_plane iniVSfin touch_sensor_count wilcox p:  0
+default_experiment_plane iniVSfin touch_sensor_count wilcox est:  400
+default_experiment touch_sensor_count  Mann-Kendall median p 5e-04
+default_experiment touch_sensor_count  Mann-Kendall median s -3.4641
+default_experiment brick_sensor_count ini avg  0
+default_experiment_plane brick_sensor_count fin avg  0
+default_experiment_plane iniVSfin brick_sensor_count wilcox p:  NaN
+default_experiment_plane iniVSfin brick_sensor_count wilcox est:  200
+default_experiment brick_sensor_count  Mann-Kendall median p NaN
+default_experiment brick_sensor_count  Mann-Kendall median s NaN
+default_experiment proportion ini avg  0.611428571428571
+default_experiment_plane proportion fin avg  0.6
+default_experiment_plane iniVSfin proportion wilcox p:  0
+default_experiment_plane iniVSfin proportion wilcox est:  400
+default_experiment proportion  Mann-Kendall median p 0.0593
+default_experiment proportion  Mann-Kendall median s -1.8859
+default_experiment width ini avg  4.2
+default_experiment_plane width fin avg  5
+default_experiment_plane iniVSfin width wilcox p:  0
+default_experiment_plane iniVSfin width wilcox est:  0
+default_experiment width  Mann-Kendall median p 0.0593
+default_experiment width  Mann-Kendall median s 1.8859
+default_experiment height ini avg  4.4
+default_experiment_plane height fin avg  3
+default_experiment_plane iniVSfin height wilcox p:  0
+default_experiment_plane iniVSfin height wilcox est:  400
+default_experiment height  Mann-Kendall median p 0.0191
+default_experiment height  Mann-Kendall median s -2.3443
+default_experiment absolute_size ini avg  9.4
+default_experiment_plane absolute_size fin avg  9
+default_experiment_plane iniVSfin absolute_size wilcox p:  0
+default_experiment_plane iniVSfin absolute_size wilcox est:  400
+default_experiment absolute_size  Mann-Kendall median p 0.6499
+default_experiment absolute_size  Mann-Kendall median s 0.4539
+default_experiment sensors ini avg  0.235098039215686
+default_experiment_plane sensors fin avg  0
+default_experiment_plane iniVSfin sensors wilcox p:  0
+default_experiment_plane iniVSfin sensors wilcox est:  400
+default_experiment sensors  Mann-Kendall median p 5e-04
+default_experiment sensors  Mann-Kendall median s -3.4641
+default_experiment symmetry ini avg  0.2
+default_experiment_plane symmetry fin avg  0
+default_experiment_plane iniVSfin symmetry wilcox p:  0
+default_experiment_plane iniVSfin symmetry wilcox est:  400
+default_experiment symmetry  Mann-Kendall median p 0.0036
+default_experiment symmetry  Mann-Kendall median s -2.9093
+default_experiment avg_period ini avg  0.435843550363998
+default_experiment_plane avg_period fin avg  0.466237175610747
+default_experiment_plane iniVSfin avg_period wilcox p:  0
+default_experiment_plane iniVSfin avg_period wilcox est:  0
+default_experiment avg_period  Mann-Kendall median p 0.6534
+default_experiment avg_period  Mann-Kendall median s 0.449
+default_experiment dev_period ini avg  0.740021907220373
+default_experiment_plane dev_period fin avg  0.864090450731302
+default_experiment_plane iniVSfin dev_period wilcox p:  0
+default_experiment_plane iniVSfin dev_period wilcox est:  0
+default_experiment dev_period  Mann-Kendall median p 0.7205
+default_experiment dev_period  Mann-Kendall median s -0.3578
+default_experiment avg_phase_offset ini avg  0.39843771408138
+default_experiment_plane avg_phase_offset fin avg  0.127795299342306
+default_experiment_plane iniVSfin avg_phase_offset wilcox p:  0
+default_experiment_plane iniVSfin avg_phase_offset wilcox est:  400
+default_experiment avg_phase_offset  Mann-Kendall median p 0.02
+default_experiment avg_phase_offset  Mann-Kendall median s -2.3255
+default_experiment dev_phase_offset ini avg  0.643220882224295
+default_experiment_plane dev_phase_offset fin avg  0.955895677004907
+default_experiment_plane iniVSfin dev_phase_offset wilcox p:  0
+default_experiment_plane iniVSfin dev_phase_offset wilcox est:  0
+default_experiment dev_phase_offset  Mann-Kendall median p 0.0024
+default_experiment dev_phase_offset  Mann-Kendall median s 3.0411
+default_experiment avg_amplitude ini avg  0.33571841336743
+default_experiment_plane avg_amplitude fin avg  0.692735611537584
+default_experiment_plane iniVSfin avg_amplitude wilcox p:  0
+default_experiment_plane iniVSfin avg_amplitude wilcox est:  0
+default_experiment avg_amplitude  Mann-Kendall median p 0.0318
+default_experiment avg_amplitude  Mann-Kendall median s 2.1466
+default_experiment dev_amplitude ini avg  0.673327585555172
+default_experiment_plane dev_amplitude fin avg  0.920968530487565
+default_experiment_plane iniVSfin dev_amplitude wilcox p:  0
+default_experiment_plane iniVSfin dev_amplitude wilcox est:  0
+default_experiment dev_amplitude  Mann-Kendall median p 0.0024
+default_experiment dev_amplitude  Mann-Kendall median s 3.0411
+default_experiment avg_intra_dev_params ini avg  0.699128203290147
+default_experiment_plane avg_intra_dev_params fin avg  0.928978671597184
+default_experiment_plane iniVSfin avg_intra_dev_params wilcox p:  0
+default_experiment_plane iniVSfin avg_intra_dev_params wilcox est:  0
+default_experiment avg_intra_dev_params  Mann-Kendall median p 0.0042
+default_experiment avg_intra_dev_params  Mann-Kendall median s 2.8622
+default_experiment avg_inter_dev_params ini avg  0.708745441812504
+default_experiment_plane avg_inter_dev_params fin avg  0.921322495943843
+default_experiment_plane iniVSfin avg_inter_dev_params wilcox p:  0
+default_experiment_plane iniVSfin avg_inter_dev_params wilcox est:  0
+default_experiment avg_inter_dev_params  Mann-Kendall median p 0.0024
+default_experiment avg_inter_dev_params  Mann-Kendall median s 3.0411
+default_experiment sensors_reach ini avg  0.3625
+default_experiment_plane sensors_reach fin avg  0
+default_experiment_plane iniVSfin sensors_reach wilcox p:  0
+default_experiment_plane iniVSfin sensors_reach wilcox est:  400
+default_experiment sensors_reach  Mann-Kendall median p 0.0683
+default_experiment sensors_reach  Mann-Kendall median s -1.8232
+default_experiment recurrence ini avg  0.25
+default_experiment_plane recurrence fin avg  0
+default_experiment_plane iniVSfin recurrence wilcox p:  0
+default_experiment_plane iniVSfin recurrence wilcox est:  400
+default_experiment recurrence  Mann-Kendall median p 0.0012
+default_experiment recurrence  Mann-Kendall median s -3.246
+default_experiment synaptic_reception ini avg  0
+default_experiment_plane synaptic_reception fin avg  0
+default_experiment_plane iniVSfin synaptic_reception wilcox p:  NaN
+default_experiment_plane iniVSfin synaptic_reception wilcox est:  200
+default_experiment synaptic_reception  Mann-Kendall median p NaN
+default_experiment synaptic_reception  Mann-Kendall median s NaN
+default_experiment fitness ini avg  0.000406670319849794
+default_experiment_plane fitness fin avg  0.000508030443066409
+default_experiment_plane iniVSfin fitness wilcox p:  0
+default_experiment_plane iniVSfin fitness wilcox est:  0
+default_experiment fitness  Mann-Kendall median p 0.858
+default_experiment fitness  Mann-Kendall median s 0.1789
+default_experiment cons_fitness ini avg  1.4
+default_experiment_plane cons_fitness fin avg  3.6
+default_experiment_plane iniVSfin cons_fitness wilcox p:  0
+default_experiment_plane iniVSfin cons_fitness wilcox est:  0
+default_experiment cons_fitness  Mann-Kendall median p 0.5915
+default_experiment cons_fitness  Mann-Kendall median s 0.5367
+NA displacement_velocity_hill ini avg  -0.400470105722941
+default_experiment_tilted5 displacement_velocity_hill fin avg  -0.34437563362724
+default_experiment_tilted5 iniVSfin displacement_velocity_hill wilcox p:  0
+default_experiment_tilted5 iniVSfin displacement_velocity_hill wilcox est:  0
+NA displacement_velocity_hill  Mann-Kendall median p 1
+NA displacement_velocity_hill  Mann-Kendall median s 0
+NA head_balance ini avg  0.980626903995405
+default_experiment_tilted5 head_balance fin avg  0.981923059507267
+default_experiment_tilted5 iniVSfin head_balance wilcox p:  0
+default_experiment_tilted5 iniVSfin head_balance wilcox est:  0
+NA head_balance  Mann-Kendall median p 0.858
+NA head_balance  Mann-Kendall median s -0.1789
+NA contacts ini avg  224.235714285714
+default_experiment_tilted5 contacts fin avg  102.652380952381
+default_experiment_tilted5 iniVSfin contacts wilcox p:  0
+default_experiment_tilted5 iniVSfin contacts wilcox est:  400
+NA contacts  Mann-Kendall median p 0.4743
+NA contacts  Mann-Kendall median s 0.7155
+NA displacement_velocity ini avg  0.004069550929992
+default_experiment_tilted5 displacement_velocity fin avg  0.00346097173516979
+default_experiment_tilted5 iniVSfin displacement_velocity wilcox p:  0
+default_experiment_tilted5 iniVSfin displacement_velocity wilcox est:  400
+NA displacement_velocity  Mann-Kendall median p 1
+NA displacement_velocity  Mann-Kendall median s 0
+NA branching ini avg  0
+default_experiment_tilted5 branching fin avg  0
+default_experiment_tilted5 iniVSfin branching wilcox p:  NaN
+default_experiment_tilted5 iniVSfin branching wilcox est:  200
+NA branching  Mann-Kendall median p 0.4941
+NA branching  Mann-Kendall median s -0.6838
+NA branching_modules_count ini avg  0
+default_experiment_tilted5 branching_modules_count fin avg  0
+default_experiment_tilted5 iniVSfin branching_modules_count wilcox p:  NaN
+default_experiment_tilted5 iniVSfin branching_modules_count wilcox est:  200
+NA branching_modules_count  Mann-Kendall median p 0.3701
+NA branching_modules_count  Mann-Kendall median s -0.8963
+NA limbs ini avg  0.4
+default_experiment_tilted5 limbs fin avg  0.58
+default_experiment_tilted5 iniVSfin limbs wilcox p:  0
+default_experiment_tilted5 iniVSfin limbs wilcox est:  0
+NA limbs  Mann-Kendall median p 0.7205
+NA limbs  Mann-Kendall median s 0.3578
+NA extremities ini avg  3.6
+default_experiment_tilted5 extremities fin avg  2.4
+default_experiment_tilted5 iniVSfin extremities wilcox p:  0
+default_experiment_tilted5 iniVSfin extremities wilcox est:  400
+NA extremities  Mann-Kendall median p 0.0221
+NA extremities  Mann-Kendall median s -2.2885
+NA length_of_limbs ini avg  0.421538461538462
+default_experiment_tilted5 length_of_limbs fin avg  0.51
+default_experiment_tilted5 iniVSfin length_of_limbs wilcox p:  0
+default_experiment_tilted5 iniVSfin length_of_limbs wilcox est:  0
+NA length_of_limbs  Mann-Kendall median p 0.8569
+NA length_of_limbs  Mann-Kendall median s 0.1803
+NA extensiveness ini avg  4.2
+default_experiment_tilted5 extensiveness fin avg  2.2
+default_experiment_tilted5 iniVSfin extensiveness wilcox p:  0
+default_experiment_tilted5 iniVSfin extensiveness wilcox est:  400
+NA extensiveness  Mann-Kendall median p 0.1268
+NA extensiveness  Mann-Kendall median s -1.5266
+NA coverage ini avg  0.684659090909091
+default_experiment_tilted5 coverage fin avg  0.7
+default_experiment_tilted5 iniVSfin coverage wilcox p:  0
+default_experiment_tilted5 iniVSfin coverage wilcox est:  0
+NA coverage  Mann-Kendall median p 0.1018
+NA coverage  Mann-Kendall median s 1.6364
+NA joints ini avg  0.32
+default_experiment_tilted5 joints fin avg  0.42
+default_experiment_tilted5 iniVSfin joints wilcox p:  0
+default_experiment_tilted5 iniVSfin joints wilcox est:  0
+NA joints  Mann-Kendall median p 0.858
+NA joints  Mann-Kendall median s 0.1789
+NA hinge_count ini avg  5.2
+default_experiment_tilted5 hinge_count fin avg  4.2
+default_experiment_tilted5 iniVSfin hinge_count wilcox p:  0
+default_experiment_tilted5 iniVSfin hinge_count wilcox est:  400
+NA hinge_count  Mann-Kendall median p 0.1238
+NA hinge_count  Mann-Kendall median s -1.5391
+NA active_hinges_count ini avg  3.2
+default_experiment_tilted5 active_hinges_count fin avg  1.8
+default_experiment_tilted5 iniVSfin active_hinges_count wilcox p:  0
+default_experiment_tilted5 iniVSfin active_hinges_count wilcox est:  400
+NA active_hinges_count  Mann-Kendall median p 0.1447
+NA active_hinges_count  Mann-Kendall median s -1.4586
+NA brick_count ini avg  4.4
+default_experiment_tilted5 brick_count fin avg  1
+default_experiment_tilted5 iniVSfin brick_count wilcox p:  0
+default_experiment_tilted5 iniVSfin brick_count wilcox est:  400
+NA brick_count  Mann-Kendall median p 0.088
+NA brick_count  Mann-Kendall median s -1.7063
+NA touch_sensor_count ini avg  2
+default_experiment_tilted5 touch_sensor_count fin avg  0
+default_experiment_tilted5 iniVSfin touch_sensor_count wilcox p:  0
+default_experiment_tilted5 iniVSfin touch_sensor_count wilcox est:  400
+NA touch_sensor_count  Mann-Kendall median p 0.0713
+NA touch_sensor_count  Mann-Kendall median s -1.8033
+NA brick_sensor_count ini avg  0
+default_experiment_tilted5 brick_sensor_count fin avg  0
+default_experiment_tilted5 iniVSfin brick_sensor_count wilcox p:  NaN
+default_experiment_tilted5 iniVSfin brick_sensor_count wilcox est:  200
+NA brick_sensor_count  Mann-Kendall median p NaN
+NA brick_sensor_count  Mann-Kendall median s NaN
+NA proportion ini avg  0.54978354978355
+default_experiment_tilted5 proportion fin avg  0.511904761904762
+default_experiment_tilted5 iniVSfin proportion wilcox p:  0
+default_experiment_tilted5 iniVSfin proportion wilcox est:  400
+NA proportion  Mann-Kendall median p 0.5915
+NA proportion  Mann-Kendall median s 0.5367
+NA width ini avg  5.8
+default_experiment_tilted5 width fin avg  4.4
+default_experiment_tilted5 iniVSfin width wilcox p:  0
+default_experiment_tilted5 iniVSfin width wilcox est:  400
+NA width  Mann-Kendall median p 0.1074
+NA width  Mann-Kendall median s -1.61
+NA height ini avg  3.6
+default_experiment_tilted5 height fin avg  2.8
+default_experiment_tilted5 iniVSfin height wilcox p:  0
+default_experiment_tilted5 iniVSfin height wilcox est:  400
+NA height  Mann-Kendall median p 0.005
+NA height  Mann-Kendall median s -2.8066
+NA absolute_size ini avg  10.6
+default_experiment_tilted5 absolute_size fin avg  6.2
+default_experiment_tilted5 iniVSfin absolute_size wilcox p:  0
+default_experiment_tilted5 iniVSfin absolute_size wilcox est:  400
+NA absolute_size  Mann-Kendall median p 0.088
+NA absolute_size  Mann-Kendall median s -1.7063
+NA sensors ini avg  0.2225
+default_experiment_tilted5 sensors fin avg  0
+default_experiment_tilted5 iniVSfin sensors wilcox p:  0
+default_experiment_tilted5 iniVSfin sensors wilcox est:  400
+NA sensors  Mann-Kendall median p 0.6534
+NA sensors  Mann-Kendall median s -0.449
+NA symmetry ini avg  0.284848484848485
+default_experiment_tilted5 symmetry fin avg  0.466666666666667
+default_experiment_tilted5 iniVSfin symmetry wilcox p:  0
+default_experiment_tilted5 iniVSfin symmetry wilcox est:  0
+NA symmetry  Mann-Kendall median p 0.5262
+NA symmetry  Mann-Kendall median s 0.6338
+NA avg_period ini avg  0.426825813269877
+default_experiment_tilted5 avg_period fin avg  0.648649575338431
+default_experiment_tilted5 iniVSfin avg_period wilcox p:  0
+default_experiment_tilted5 iniVSfin avg_period wilcox est:  0
+NA avg_period  Mann-Kendall median p 0.5296
+NA avg_period  Mann-Kendall median s -0.6286
+NA dev_period ini avg  0.711485259675422
+default_experiment_tilted5 dev_period fin avg  0.755579236622384
+default_experiment_tilted5 iniVSfin dev_period wilcox p:  0
+default_experiment_tilted5 iniVSfin dev_period wilcox est:  0
+NA dev_period  Mann-Kendall median p 0.0736
+NA dev_period  Mann-Kendall median s -1.7889
+NA avg_phase_offset ini avg  0.617378918160872
+default_experiment_tilted5 avg_phase_offset fin avg  0.70533062765309
+default_experiment_tilted5 iniVSfin avg_phase_offset wilcox p:  0
+default_experiment_tilted5 iniVSfin avg_phase_offset wilcox est:  0
+NA avg_phase_offset  Mann-Kendall median p 0.8569
+NA avg_phase_offset  Mann-Kendall median s -0.1803
+NA dev_phase_offset ini avg  0.690106109845026
+default_experiment_tilted5 dev_phase_offset fin avg  0.885813880478577
+default_experiment_tilted5 iniVSfin dev_phase_offset wilcox p:  0
+default_experiment_tilted5 iniVSfin dev_phase_offset wilcox est:  0
+NA dev_phase_offset  Mann-Kendall median p 0.3711
+NA dev_phase_offset  Mann-Kendall median s 0.8944
+NA avg_amplitude ini avg  0.457280290675256
+default_experiment_tilted5 avg_amplitude fin avg  0.40054867904116
+default_experiment_tilted5 iniVSfin avg_amplitude wilcox p:  0
+default_experiment_tilted5 iniVSfin avg_amplitude wilcox est:  400
+NA avg_amplitude  Mann-Kendall median p 0.5296
+NA avg_amplitude  Mann-Kendall median s -0.6286
+NA dev_amplitude ini avg  0.689083393537929
+default_experiment_tilted5 dev_amplitude fin avg  0.838779807417501
+default_experiment_tilted5 iniVSfin dev_amplitude wilcox p:  0
+default_experiment_tilted5 iniVSfin dev_amplitude wilcox est:  0
+NA dev_amplitude  Mann-Kendall median p 0.2105
+NA dev_amplitude  Mann-Kendall median s -1.2522
+NA avg_intra_dev_params ini avg  0.730124196608726
+default_experiment_tilted5 avg_intra_dev_params fin avg  0.883521889804315
+default_experiment_tilted5 iniVSfin avg_intra_dev_params wilcox p:  0
+default_experiment_tilted5 iniVSfin avg_intra_dev_params wilcox est:  0
+NA avg_intra_dev_params  Mann-Kendall median p 0.178
+NA avg_intra_dev_params  Mann-Kendall median s -1.347
+NA avg_inter_dev_params ini avg  0.705711460572603
+default_experiment_tilted5 avg_inter_dev_params fin avg  0.836359863236161
+default_experiment_tilted5 iniVSfin avg_inter_dev_params wilcox p:  0
+default_experiment_tilted5 iniVSfin avg_inter_dev_params wilcox est:  0
+NA avg_inter_dev_params  Mann-Kendall median p 0.3711
+NA avg_inter_dev_params  Mann-Kendall median s -0.8944
+NA sensors_reach ini avg  0.0793650793650794
+default_experiment_tilted5 sensors_reach fin avg  0
+default_experiment_tilted5 iniVSfin sensors_reach wilcox p:  0
+default_experiment_tilted5 iniVSfin sensors_reach wilcox est:  400
+NA sensors_reach  Mann-Kendall median p 0.1268
+NA sensors_reach  Mann-Kendall median s -1.5266
+NA recurrence ini avg  0.146031746031746
+default_experiment_tilted5 recurrence fin avg  0
+default_experiment_tilted5 iniVSfin recurrence wilcox p:  0
+default_experiment_tilted5 iniVSfin recurrence wilcox est:  400
+NA recurrence  Mann-Kendall median p 0.0022
+NA recurrence  Mann-Kendall median s -3.0657
+NA synaptic_reception ini avg  0
+default_experiment_tilted5 synaptic_reception fin avg  0
+default_experiment_tilted5 iniVSfin synaptic_reception wilcox p:  NaN
+default_experiment_tilted5 iniVSfin synaptic_reception wilcox est:  200
+NA synaptic_reception  Mann-Kendall median p NaN
+NA synaptic_reception  Mann-Kendall median s NaN
+NA fitness ini avg  -0.0253546587051329
+default_experiment_tilted5 fitness fin avg  -0.00034437563362724
+default_experiment_tilted5 iniVSfin fitness wilcox p:  0
+default_experiment_tilted5 iniVSfin fitness wilcox est:  0
+NA fitness  Mann-Kendall median p 0.1524
+NA fitness  Mann-Kendall median s -1.4311
+NA cons_fitness ini avg  1.4
+default_experiment_tilted5 cons_fitness fin avg  3.6
+default_experiment_tilted5 iniVSfin cons_fitness wilcox p:  0
+default_experiment_tilted5 iniVSfin cons_fitness wilcox est:  0
+NA cons_fitness  Mann-Kendall median p 0.5915
+NA cons_fitness  Mann-Kendall median s 0.5367
+default_experiment_plane displacement_velocity_hill fin avg  0.0508030443066409
+default_experiment_tilted5 displacement_velocity_hill fin avg  -0.34437563362724
+default_experiment_plane VS default_experiment_plane displacement_velocity_hill fin avg wilcox p:  0
+default_experiment_plane VS default_experiment_tilted5 displacement_velocity_hill fin avg wilcox est:  400
+default_experiment_plane head_balance fin avg  0.991213293784194
+default_experiment_tilted5 head_balance fin avg  0.981923059507267
+default_experiment_plane VS default_experiment_plane head_balance fin avg wilcox p:  0
+default_experiment_plane VS default_experiment_tilted5 head_balance fin avg wilcox est:  400
+default_experiment_plane contacts fin avg  27.6
+default_experiment_tilted5 contacts fin avg  102.652380952381
+default_experiment_plane VS default_experiment_plane contacts fin avg wilcox p:  0
+default_experiment_plane VS default_experiment_tilted5 contacts fin avg wilcox est:  0
+default_experiment_plane displacement_velocity fin avg  0.000642033975111292
+default_experiment_tilted5 displacement_velocity fin avg  0.00346097173516979
+default_experiment_plane VS default_experiment_plane displacement_velocity fin avg wilcox p:  0
+default_experiment_plane VS default_experiment_tilted5 displacement_velocity fin avg wilcox est:  0
+default_experiment_plane branching fin avg  0
+default_experiment_tilted5 branching fin avg  0
+default_experiment_plane VS default_experiment_plane branching fin avg wilcox p:  NaN
+default_experiment_plane VS default_experiment_tilted5 branching fin avg wilcox est:  200
+default_experiment_plane branching_modules_count fin avg  0
+default_experiment_tilted5 branching_modules_count fin avg  0
+default_experiment_plane VS default_experiment_plane branching_modules_count fin avg wilcox p:  NaN
+default_experiment_plane VS default_experiment_tilted5 branching_modules_count fin avg wilcox est:  200
+default_experiment_plane limbs fin avg  0.5
+default_experiment_tilted5 limbs fin avg  0.58
+default_experiment_plane VS default_experiment_plane limbs fin avg wilcox p:  0
+default_experiment_plane VS default_experiment_tilted5 limbs fin avg wilcox est:  0
+default_experiment_plane extremities fin avg  3
+default_experiment_tilted5 extremities fin avg  2.4
+default_experiment_plane VS default_experiment_plane extremities fin avg wilcox p:  0
+default_experiment_plane VS default_experiment_tilted5 extremities fin avg wilcox est:  400
+default_experiment_plane length_of_limbs fin avg  0.571428571428571
+default_experiment_tilted5 length_of_limbs fin avg  0.51
+default_experiment_plane VS default_experiment_plane length_of_limbs fin avg wilcox p:  0
+default_experiment_plane VS default_experiment_tilted5 length_of_limbs fin avg wilcox est:  400
+default_experiment_plane extensiveness fin avg  4
+default_experiment_tilted5 extensiveness fin avg  2.2
+default_experiment_plane VS default_experiment_plane extensiveness fin avg wilcox p:  0
+default_experiment_plane VS default_experiment_tilted5 extensiveness fin avg wilcox est:  400
+default_experiment_plane coverage fin avg  0.6
+default_experiment_tilted5 coverage fin avg  0.7
+default_experiment_plane VS default_experiment_plane coverage fin avg wilcox p:  0
+default_experiment_plane VS default_experiment_tilted5 coverage fin avg wilcox est:  0
+default_experiment_plane joints fin avg  0.428571428571429
+default_experiment_tilted5 joints fin avg  0.42
+default_experiment_plane VS default_experiment_plane joints fin avg wilcox p:  0
+default_experiment_plane VS default_experiment_tilted5 joints fin avg wilcox est:  400
+default_experiment_plane hinge_count fin avg  6
+default_experiment_tilted5 hinge_count fin avg  4.2
+default_experiment_plane VS default_experiment_plane hinge_count fin avg wilcox p:  0
+default_experiment_plane VS default_experiment_tilted5 hinge_count fin avg wilcox est:  400
+default_experiment_plane active_hinges_count fin avg  3
+default_experiment_tilted5 active_hinges_count fin avg  1.8
+default_experiment_plane VS default_experiment_plane active_hinges_count fin avg wilcox p:  0
+default_experiment_plane VS default_experiment_tilted5 active_hinges_count fin avg wilcox est:  400
+default_experiment_plane brick_count fin avg  2
+default_experiment_tilted5 brick_count fin avg  1
+default_experiment_plane VS default_experiment_plane brick_count fin avg wilcox p:  0
+default_experiment_plane VS default_experiment_tilted5 brick_count fin avg wilcox est:  400
+default_experiment_plane touch_sensor_count fin avg  0
+default_experiment_tilted5 touch_sensor_count fin avg  0
+default_experiment_plane VS default_experiment_plane touch_sensor_count fin avg wilcox p:  NaN
+default_experiment_plane VS default_experiment_tilted5 touch_sensor_count fin avg wilcox est:  200
+default_experiment_plane brick_sensor_count fin avg  0
+default_experiment_tilted5 brick_sensor_count fin avg  0
+default_experiment_plane VS default_experiment_plane brick_sensor_count fin avg wilcox p:  NaN
+default_experiment_plane VS default_experiment_tilted5 brick_sensor_count fin avg wilcox est:  200
+default_experiment_plane proportion fin avg  0.6
+default_experiment_tilted5 proportion fin avg  0.511904761904762
+default_experiment_plane VS default_experiment_plane proportion fin avg wilcox p:  0
+default_experiment_plane VS default_experiment_tilted5 proportion fin avg wilcox est:  400
+default_experiment_plane width fin avg  5
+default_experiment_tilted5 width fin avg  4.4
+default_experiment_plane VS default_experiment_plane width fin avg wilcox p:  0
+default_experiment_plane VS default_experiment_tilted5 width fin avg wilcox est:  400
+default_experiment_plane height fin avg  3
+default_experiment_tilted5 height fin avg  2.8
+default_experiment_plane VS default_experiment_plane height fin avg wilcox p:  0
+default_experiment_plane VS default_experiment_tilted5 height fin avg wilcox est:  400
+default_experiment_plane absolute_size fin avg  9
+default_experiment_tilted5 absolute_size fin avg  6.2
+default_experiment_plane VS default_experiment_plane absolute_size fin avg wilcox p:  0
+default_experiment_plane VS default_experiment_tilted5 absolute_size fin avg wilcox est:  400
+default_experiment_plane sensors fin avg  0
+default_experiment_tilted5 sensors fin avg  0
+default_experiment_plane VS default_experiment_plane sensors fin avg wilcox p:  NaN
+default_experiment_plane VS default_experiment_tilted5 sensors fin avg wilcox est:  200
+default_experiment_plane symmetry fin avg  0
+default_experiment_tilted5 symmetry fin avg  0.466666666666667
+default_experiment_plane VS default_experiment_plane symmetry fin avg wilcox p:  0
+default_experiment_plane VS default_experiment_tilted5 symmetry fin avg wilcox est:  0
+default_experiment_plane avg_period fin avg  0.466237175610747
+default_experiment_tilted5 avg_period fin avg  0.648649575338431
+default_experiment_plane VS default_experiment_plane avg_period fin avg wilcox p:  0
+default_experiment_plane VS default_experiment_tilted5 avg_period fin avg wilcox est:  0
+default_experiment_plane dev_period fin avg  0.864090450731302
+default_experiment_tilted5 dev_period fin avg  0.755579236622384
+default_experiment_plane VS default_experiment_plane dev_period fin avg wilcox p:  0
+default_experiment_plane VS default_experiment_tilted5 dev_period fin avg wilcox est:  400
+default_experiment_plane avg_phase_offset fin avg  0.127795299342306
+default_experiment_tilted5 avg_phase_offset fin avg  0.70533062765309
+default_experiment_plane VS default_experiment_plane avg_phase_offset fin avg wilcox p:  0
+default_experiment_plane VS default_experiment_tilted5 avg_phase_offset fin avg wilcox est:  0
+default_experiment_plane dev_phase_offset fin avg  0.955895677004907
+default_experiment_tilted5 dev_phase_offset fin avg  0.885813880478577
+default_experiment_plane VS default_experiment_plane dev_phase_offset fin avg wilcox p:  0
+default_experiment_plane VS default_experiment_tilted5 dev_phase_offset fin avg wilcox est:  400
+default_experiment_plane avg_amplitude fin avg  0.692735611537584
+default_experiment_tilted5 avg_amplitude fin avg  0.40054867904116
+default_experiment_plane VS default_experiment_plane avg_amplitude fin avg wilcox p:  0
+default_experiment_plane VS default_experiment_tilted5 avg_amplitude fin avg wilcox est:  400
+default_experiment_plane dev_amplitude fin avg  0.920968530487565
+default_experiment_tilted5 dev_amplitude fin avg  0.838779807417501
+default_experiment_plane VS default_experiment_plane dev_amplitude fin avg wilcox p:  0
+default_experiment_plane VS default_experiment_tilted5 dev_amplitude fin avg wilcox est:  400
+default_experiment_plane avg_intra_dev_params fin avg  0.928978671597184
+default_experiment_tilted5 avg_intra_dev_params fin avg  0.883521889804315
+default_experiment_plane VS default_experiment_plane avg_intra_dev_params fin avg wilcox p:  0
+default_experiment_plane VS default_experiment_tilted5 avg_intra_dev_params fin avg wilcox est:  400
+default_experiment_plane avg_inter_dev_params fin avg  0.921322495943843
+default_experiment_tilted5 avg_inter_dev_params fin avg  0.836359863236161
+default_experiment_plane VS default_experiment_plane avg_inter_dev_params fin avg wilcox p:  0
+default_experiment_plane VS default_experiment_tilted5 avg_inter_dev_params fin avg wilcox est:  400
+default_experiment_plane sensors_reach fin avg  0
+default_experiment_tilted5 sensors_reach fin avg  0
+default_experiment_plane VS default_experiment_plane sensors_reach fin avg wilcox p:  NaN
+default_experiment_plane VS default_experiment_tilted5 sensors_reach fin avg wilcox est:  200
+default_experiment_plane recurrence fin avg  0
+default_experiment_tilted5 recurrence fin avg  0
+default_experiment_plane VS default_experiment_plane recurrence fin avg wilcox p:  NaN
+default_experiment_plane VS default_experiment_tilted5 recurrence fin avg wilcox est:  200
+default_experiment_plane synaptic_reception fin avg  0
+default_experiment_tilted5 synaptic_reception fin avg  0
+default_experiment_plane VS default_experiment_plane synaptic_reception fin avg wilcox p:  NaN
+default_experiment_plane VS default_experiment_tilted5 synaptic_reception fin avg wilcox est:  200
+default_experiment_plane fitness fin avg  0.000508030443066409
+default_experiment_tilted5 fitness fin avg  -0.00034437563362724
+default_experiment_plane VS default_experiment_plane fitness fin avg wilcox p:  0
+default_experiment_plane VS default_experiment_tilted5 fitness fin avg wilcox est:  400
+default_experiment_plane cons_fitness fin avg  3.6
+default_experiment_tilted5 cons_fitness fin avg  3.6
+default_experiment_plane VS default_experiment_plane cons_fitness fin avg wilcox p:  NaN
+default_experiment_plane VS default_experiment_tilted5 cons_fitness fin avg wilcox est:  200

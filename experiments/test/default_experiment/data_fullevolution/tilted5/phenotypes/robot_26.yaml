@@ -1,0 +1,275 @@
+id: robot_26
+body:
+  id: '1'
+  type: CoreComponent
+  orientation: 0
+  params:
+    blue: 0
+    green: 1
+    red: 1
+  children:
+    0:
+      id: '6'
+      type: FixedBrick
+      orientation: 0
+      params:
+        blue: 1
+        green: 0
+        red: 0
+    1:
+      id: '4'
+      type: FixedBrick
+      orientation: 0
+      params:
+        blue: 1
+        green: 0
+        red: 0
+      children:
+        1:
+          id: 4s1
+          type: TouchSensor
+          orientation: 0
+          params:
+            blue: 0.7
+            green: 0.7
+            red: 0.7
+        2:
+          id: '7'
+          type: ActiveHinge
+          orientation: 0
+          params:
+            blue: 0.58
+            green: 0.08
+            red: 1
+          children:
+            1:
+              id: '8'
+              type: ActiveHinge
+              orientation: 0
+              params:
+                blue: 0.58
+                green: 0.08
+                red: 1
+              children:
+                1:
+                  id: '9'
+                  type: FixedBrick
+                  orientation: 0
+                  params:
+                    blue: 1
+                    green: 0
+                    red: 0
+                  children:
+                    2:
+                      id: 9s2
+                      type: TouchSensor
+                      orientation: 0
+                      params:
+                        blue: 0.7
+                        green: 0.7
+                        red: 0.7
+                    3:
+                      id: 9s3
+                      type: TouchSensor
+                      orientation: 0
+                      params:
+                        blue: 0.7
+                        green: 0.7
+                        red: 0.7
+        3:
+          id: 4s3
+          type: TouchSensor
+          orientation: 0
+          params:
+            blue: 0.7
+            green: 0.7
+            red: 0.7
+    2:
+      id: '3'
+      type: ActiveHinge
+      orientation: 0
+      params:
+        blue: 0.58
+        green: 0.08
+        red: 1
+      children:
+        1:
+          id: '5'
+          type: FixedBrick
+          orientation: 0
+          params:
+            blue: 1
+            green: 0
+            red: 0
+          children:
+            1:
+              id: 5s1
+              type: TouchSensor
+              orientation: 0
+              params:
+                blue: 0.7
+                green: 0.7
+                red: 0.7
+            2:
+              id: 5s2
+              type: TouchSensor
+              orientation: 0
+              params:
+                blue: 0.7
+                green: 0.7
+                red: 0.7
+            3:
+              id: 5s3
+              type: TouchSensor
+              orientation: 0
+              params:
+                blue: 0.7
+                green: 0.7
+                red: 0.7
+    3:
+      id: '2'
+      type: ActiveHinge
+      orientation: 0
+      params:
+        blue: 0.58
+        green: 0.08
+        red: 1
+brain:
+  type: neural-network
+  neurons:
+    node1:
+      id: node1
+      layer: output
+      part_id: '2'
+      type: Oscillator
+    node2:
+      id: node2
+      layer: output
+      part_id: '3'
+      type: Oscillator
+    node3:
+      id: node3
+      layer: input
+      part_id: 5s2
+      type: Input
+    node4:
+      id: node4
+      layer: input
+      part_id: 5s3
+      type: Input
+    node5:
+      id: node5
+      layer: input
+      part_id: 5s1
+      type: Input
+    node6:
+      id: node6
+      layer: input
+      part_id: 4s3
+      type: Input
+    node7:
+      id: node7
+      layer: output
+      part_id: '7'
+      type: Oscillator
+    node8:
+      id: node8
+      layer: output
+      part_id: '8'
+      type: Oscillator
+    node9:
+      id: node9
+      layer: input
+      part_id: 4s1
+      type: Input
+    node10:
+      id: node10
+      layer: input
+      part_id: 9s2
+      type: Input
+    node11:
+      id: node11
+      layer: input
+      part_id: 9s3
+      type: Input
+    node-core1:
+      id: node-core1
+      layer: input
+      part_id: '1'
+      type: Input
+    node-core2:
+      id: node-core2
+      layer: input
+      part_id: '1'
+      type: Input
+    node-core3:
+      id: node-core3
+      layer: input
+      part_id: '1'
+      type: Input
+    node-core4:
+      id: node-core4
+      layer: input
+      part_id: '1'
+      type: Input
+    node-core5:
+      id: node-core5
+      layer: input
+      part_id: '1'
+      type: Input
+    node-core6:
+      id: node-core6
+      layer: input
+      part_id: '1'
+      type: Input
+  connections:
+  - dst: node1
+    src: node3
+    weight: 1
+  - dst: node2
+    src: node3
+    weight: -0.8095733634530158
+  - dst: node2
+    src: node4
+    weight: -0.04848803158768522
+  - dst: node1
+    src: node1
+    weight: 0.4074859756476721
+  - dst: node1
+    src: node5
+    weight: 0.8141878253627333
+  - dst: node1
+    src: node6
+    weight: 0.0027766326043350276
+  - dst: node7
+    src: node3
+    weight: -0.16623423019973527
+  - dst: node8
+    src: node3
+    weight: -0.16623423019973527
+  - dst: node2
+    src: node9
+    weight: 0.4332223199425649
+  - dst: node1
+    src: node10
+    weight: -0.8095733634530158
+  - dst: node1
+    src: node11
+    weight: 0.7322448590660907
+  params:
+    node1:
+      amplitude: 1
+      period: 10
+      phase_offset: 8.910739924152145
+    node2:
+      amplitude: 10
+      period: 9.005415767903331
+      phase_offset: 3.0534710418873328
+    node7:
+      amplitude: 9.552572452168672
+      period: 1.2395247019880364
+      phase_offset: 3.2129497465585803
+    node8:
+      amplitude: 9.552572452168672
+      period: 1.2395247019880364
+      phase_offset: 3.2129497465585803

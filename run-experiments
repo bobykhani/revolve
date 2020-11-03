@@ -1,0 +1,44 @@
+ #!/bin/bash
+
+ 
+while true
+	do
+         for i in {1..10}; do
+                ./revolve.py --experiment-name=babaks_experiments/data/plastic_big_$i --run $i --manager=experiments/plasticoding_frontiers2020/plastic_big.py --n-cores 4 --port-start 11141 --evaluation-time 50;
+
+                sleep 5s
+	   done
+done
+
+
+#while true
+#	do
+#         for i in {1..20}; do
+#                ./revolve.py --experiment-name karines_experiments/data/plastic_big_$i --run $i --manager experiments/karines_experiments/plastic_big.py --n-cores 4 --port-start 11141  --evaluation-time 50;
+
+#                sleep 5s
+#	   done
+#done
+
+ #while true
+#	do
+ #        for i in {1..20}; do
+  #              ./revolve.py --experiment-name karines_experiments/data/flat_big_$i --run $i --manager experiments/karines_experiments/flat_big.py --n-cores 4 --port-start 11141  --evaluation-time 50;
+
+   #             sleep 5s
+	#   done
+#done
+
+ 
+ # while true
+#	do
+ #        for i in {1..20}; do
+  #              ./revolve.py --experiment-name karines_experiments/data/tilted_big_$i --run $i --manager experiments/karines_experiments/tilted_big.py --n-cores 4 --port-start 11141  --evaluation-time 50;
+
+   #             sleep 5s
+	#   done
+#done
+
+ 
+
+ 

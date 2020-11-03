@@ -2,7 +2,7 @@ import os
 import math
 
 # set these variables according to your experiments #
-dirpath = 'data/'
+dirpath = '../'
 experiments_type = [
   'flat_big',
 'tilted_big',
@@ -64,9 +64,9 @@ for exp in experiments_type:
 
         for run in runs:
 
-            path0 = dirpath + str(exp) + '_' + str(run) + '/data_fullevolution'
-            path1 = dirpath + str(exp) + '_' + str(run) + '/data_fullevolution/' + env
-            path2 = dirpath + str(exp) + '_' + str(run) + '/selectedpop_' + env
+            path0 = dirpath + 'default_experiment' + '/data_fullevolution'
+            path1 = dirpath + 'default_experiment' + '/data_fullevolution/' + env
+            path2 = dirpath + 'default_experiment' + '/selectedpop_' + env
 
             behavior_headers, phenotype_headers = build_headers(path1, path2)
 

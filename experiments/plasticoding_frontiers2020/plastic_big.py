@@ -26,9 +26,9 @@ async def run():
     """
 
     # experiment params #
-    num_generations = 200
-    population_size = 100
-    offspring_size = 100
+    num_generations = 10#200
+    population_size = 5#100
+    offspring_size = 5#100
     front = 'slaves'
 
     # environment world and z-start
@@ -42,7 +42,7 @@ async def run():
     )
 
     mutation_conf = MutationConfig(
-        mutation_prob=0.8,
+        mutation_prob=1,#0.8,
         genotype_conf=genotype_conf,
     )
 

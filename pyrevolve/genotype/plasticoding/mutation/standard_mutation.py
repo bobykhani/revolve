@@ -70,14 +70,28 @@ def handle_deletion_plastic(genotype):
     """
 
     target_letter = random.choice(list(genotype.grammar))
-    target_clause = random.choice(range(0, len(genotype.grammar[target_letter])))
+    target_clause = random.choice(range(0, 3))
 
-    if (len(genotype.grammar[target_letter][target_clause][1])) > 1:
-        symbol_to_delete = random.choice(genotype.grammar[target_letter][target_clause][1])
-        if symbol_to_delete[0] != Alphabet.CORE_COMPONENT:
-            genotype.grammar[target_letter][target_clause][1].remove(symbol_to_delete)
-            genotype_logger.info(
-                f'mutation: remove in {genotype.id} for {target_letter} in {target_clause} at {symbol_to_delete[0]}.')
+    if(target_clause != 2):
+        if (len(genotype.grammar[target_letter][target_clause][1])) > 1:
+            symbol_to_delete = random.choice(genotype.grammar[target_letter][target_clause][1])
+            if symbol_to_delete[0] != Alphabet.CORE_COMPONENT:
+                genotype.grammar[target_letter][target_clause][1].remove(symbol_to_delete)
+                genotype_logger.info(
+                    f'mutation: remove in {genotype.id} for {target_letter} in {0 and 1} at {symbol_to_delete[0]}.')
+    else:
+        if (len(genotype.grammar[target_letter][0][1])) > 1:
+            symbol_to_delete = random.choice(genotype.grammar[target_letter][0][1])
+            if symbol_to_delete[0] != Alphabet.CORE_COMPONENT:
+                genotype.grammar[target_letter][0][1].remove(symbol_to_delete)
+                genotype_logger.info(
+                    f'mutation: remove in {genotype.id} for {target_letter} in {0} at {symbol_to_delete[0]}.')
+        if (len(genotype.grammar[target_letter][1][1])) > 1:
+            symbol_to_delete = random.choice(genotype.grammar[target_letter][1][1])
+            if symbol_to_delete[0] != Alphabet.CORE_COMPONENT:
+                genotype.grammar[target_letter][1][1].remove(symbol_to_delete)
+                genotype_logger.info(
+                    f'mutation: remove in {genotype.id} for {target_letter} in {1} at {symbol_to_delete[0]}.')
     return genotype
 
 
@@ -91,19 +105,48 @@ def handle_swap_plastic(genotype):
     """
 
     target_letter = random.choice(list(genotype.grammar))
-    target_clause = random.choice(range(0, len(genotype.grammar[target_letter])))
+    target_clause = random.choice(range(0, 3))
 
-    if (len(genotype.grammar[target_letter][target_clause][1])) > 1:
-        symbols_to_swap = random.choices(population=genotype.grammar[target_letter][target_clause][1], k=2)
-        for symbol in symbols_to_swap:
-            if symbol[0] == Alphabet.CORE_COMPONENT:
-                return genotype
-        item_index_1 = genotype.grammar[target_letter][target_clause][1].index(symbols_to_swap[0])
-        item_index_2 = genotype.grammar[target_letter][target_clause][1].index(symbols_to_swap[1])
-        genotype.grammar[target_letter][target_clause][1][item_index_2], genotype.grammar[target_letter][target_clause][1][item_index_1] = \
-            genotype.grammar[target_letter][target_clause][1][item_index_1], genotype.grammar[target_letter][target_clause][1][item_index_2]
-        genotype_logger.info(
-            f'mutation: swap in {genotype.id} for {target_letter} in {target_clause} between {symbols_to_swap[0]} and {symbols_to_swap[1]}.')
+    if (target_clause != 2):
+        if (len(genotype.grammar[target_letter][target_clause][1])) > 1:
+            symbols_to_swap = random.choices(population=genotype.grammar[target_letter][target_clause][1], k=2)
+            for symbol in symbols_to_swap:
+                if symbol[0] == Alphabet.CORE_COMPONENT:
+                    return genotype
+            item_index_1 = genotype.grammar[target_letter][target_clause][1].index(symbols_to_swap[0])
+            item_index_2 = genotype.grammar[target_letter][target_clause][1].index(symbols_to_swap[1])
+            genotype.grammar[target_letter][target_clause][1][item_index_2], genotype.grammar[target_letter][target_clause][1][item_index_1] = \
+                genotype.grammar[target_letter][target_clause][1][item_index_1], genotype.grammar[target_letter][target_clause][1][item_index_2]
+            genotype_logger.info(
+                f'mutation: swap in {genotype.id} for {target_letter} in {target_clause} between {symbols_to_swap[0]} and {symbols_to_swap[1]}.')
+    else:
+        target_clause =0
+        if (len(genotype.grammar[target_letter][target_clause][1])) > 1:
+            symbols_to_swap = random.choices(population=genotype.grammar[target_letter][target_clause][1], k=2)
+            for symbol in symbols_to_swap:
+                if symbol[0] == Alphabet.CORE_COMPONENT:
+                    return genotype
+            item_index_1 = genotype.grammar[target_letter][target_clause][1].index(symbols_to_swap[0])
+            item_index_2 = genotype.grammar[target_letter][target_clause][1].index(symbols_to_swap[1])
+            genotype.grammar[target_letter][target_clause][1][item_index_2], genotype.grammar[target_letter][target_clause][1][item_index_1] = \
+                genotype.grammar[target_letter][target_clause][1][item_index_1], genotype.grammar[target_letter][target_clause][1][item_index_2]
+            genotype_logger.info(
+                f'mutation: swap in {genotype.id} for {target_letter} in {target_clause} between {symbols_to_swap[0]} and {symbols_to_swap[1]}.')
+
+        target_clause =1
+        if (len(genotype.grammar[target_letter][target_clause][1])) > 1:
+            symbols_to_swap = random.choices(population=genotype.grammar[target_letter][target_clause][1], k=2)
+            for symbol in symbols_to_swap:
+                if symbol[0] == Alphabet.CORE_COMPONENT:
+                    return genotype
+            item_index_1 = genotype.grammar[target_letter][target_clause][1].index(symbols_to_swap[0])
+            item_index_2 = genotype.grammar[target_letter][target_clause][1].index(symbols_to_swap[1])
+            genotype.grammar[target_letter][target_clause][1][item_index_2], genotype.grammar[target_letter][target_clause][1][item_index_1] = \
+                genotype.grammar[target_letter][target_clause][1][item_index_1], genotype.grammar[target_letter][target_clause][1][item_index_2]
+            genotype_logger.info(
+                f'mutation: swap in {genotype.id} for {target_letter} in {target_clause} between {symbols_to_swap[0]} and {symbols_to_swap[1]}.')
+
+
     return genotype
 
 
@@ -118,17 +161,42 @@ def handle_addition_plastic(genotype, genotype_conf):
     """
 
     target_letter = random.choice(list(genotype.grammar))
-    target_clause = random.choice(range(0, len(genotype.grammar[target_letter])))
+    target_clause = random.choice(range(0,3))
 
-    if target_letter == Alphabet.CORE_COMPONENT:
-        addition_index = random.randint(1, len(genotype.grammar[target_letter][target_clause][1]) - 1)
+    if target_clause!=2:
+        if target_letter == Alphabet.CORE_COMPONENT:
+            addition_index = random.randint(1, len(genotype.grammar[target_letter][target_clause][1]) - 1)
+        else:
+            addition_index = random.randint(0, len(genotype.grammar[target_letter][target_clause][1]) - 1)
+        symbol_to_add = generate_symbol(genotype_conf)
+        genotype.grammar[target_letter][target_clause][1].insert(addition_index, symbol_to_add)
+
+        genotype_logger.info(
+            f'mutation: add {symbol_to_add} in {genotype.id} for {target_letter} in {target_clause} at {addition_index}.')
     else:
-        addition_index = random.randint(0, len(genotype.grammar[target_letter][target_clause][1]) - 1)
-    symbol_to_add = generate_symbol(genotype_conf)
-    genotype.grammar[target_letter][target_clause][1].insert(addition_index, symbol_to_add)
+        target_clause = 0
+        if target_letter == Alphabet.CORE_COMPONENT:
+            addition_index = random.randint(1, len(genotype.grammar[target_letter][target_clause][1]) - 1)
+        else:
+            addition_index = random.randint(0, len(genotype.grammar[target_letter][target_clause][1]) - 1)
+        symbol_to_add = generate_symbol(genotype_conf)
+        genotype.grammar[target_letter][target_clause][1].insert(addition_index, symbol_to_add)
 
-    genotype_logger.info(
-        f'mutation: add {symbol_to_add} in {genotype.id} for {target_letter} in {target_clause} at {addition_index}.')
+        genotype_logger.info(
+            f'mutation: add {symbol_to_add} in {genotype.id} for {target_letter} in {target_clause} at {addition_index}.')
+
+        target_clause = 1
+
+        if target_letter == Alphabet.CORE_COMPONENT:
+            addition_index = random.randint(1, len(genotype.grammar[target_letter][target_clause][1]) - 1)
+        else:
+            addition_index = random.randint(0, len(genotype.grammar[target_letter][target_clause][1]) - 1)
+        symbol_to_add = generate_symbol(genotype_conf)
+        genotype.grammar[target_letter][target_clause][1].insert(addition_index, symbol_to_add)
+
+        genotype_logger.info(
+            f'mutation: add {symbol_to_add} in {genotype.id} for {target_letter} in {target_clause} at {addition_index}.')
+
     return genotype
 
 
