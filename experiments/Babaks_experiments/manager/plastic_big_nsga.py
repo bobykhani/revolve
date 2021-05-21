@@ -36,14 +36,14 @@ async def run():
     front = 'slaves'
 
     # environment world and z-start
-    environments = {'plane': 0.03,
+    environments = {'plane': 0.03#,
                     #'plane': 0.03,
-                    'tilted5': 0.1
+                    #'tilted5': 0.1
                     }
 
     genotype_conf = PlasticodingConfig(
         max_structural_modules=15,
-        plastic=True,
+        plastic=False,
     )
 
     mutation_conf = MutationConfig(
@@ -88,8 +88,8 @@ async def run():
     def fitness_function_dvh_c_b_701515(robot_manager, robot):
         return fitness.dvh_c_b_701515(robot_manager, robot, False)
 
-    fitness_function = {'plane': fitness_function_plane_nsga,
-                        'tilted5': fitness_function_plane_nsga}#,
+    fitness_function = {'plane': fitness_function_plane_nsga}#,
+                        #'tilted5': fitness_function_plane_nsga}#,
 #                        'plane': fitness_function_dvh_c_b_33}#,
 #                        'plane': fitness_function_dvh_c_b_701515}#
 

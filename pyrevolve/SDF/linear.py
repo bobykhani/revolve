@@ -14,8 +14,8 @@ class Linear(SDF.Posable):
                  coordinates=None,
                  motorized=False,
                  position=None,
-                 rotation=None
-                 ):
+                 rotation=None,
+                 size=None):
         super().__init__(
             'joint',
             {
@@ -23,6 +23,7 @@ class Linear(SDF.Posable):
                 'name': name,
                 #'type': 'revolute'
                 'type': 'prismatic'
+                #'type': 'fixed'
             },
             position=position,
             rotation=rotation,
@@ -31,10 +32,11 @@ class Linear(SDF.Posable):
         self._name = name
         self._motorized = motorized
         self._coordinates = coordinates
+        self._size = size
 
         SDF.sub_element_text(self, 'parent', parent_link.name)
         SDF.sub_element_text(self, 'child', child_link.name)
-        self.axis = JointAxis(axis)
+        self.axis = JointAxis(axis, size)
         self.append(self.axis)
 
     def is_motorized(self):
@@ -58,7 +60,7 @@ class Linear(SDF.Posable):
             servomotor.attrib['coordinates'] = ';'.join(str(i) for i in self._coordinates)
 
         pid = xml.etree.ElementTree.SubElement(servomotor, 'rv:pid')
-        SDF.sub_element_text(pid, 'rv:p', 0.9)
+        SDF.sub_element_text(pid, 'rv:p', 0.0)
         SDF.sub_element_text(pid, 'rv:i', 0.0)
         SDF.sub_element_text(pid, 'rv:d', 0.0)
         SDF.sub_element_text(pid, 'rv:i_max', 0.0)
@@ -70,7 +72,7 @@ class Linear(SDF.Posable):
 
 
 class JointAxis(xml.etree.ElementTree.Element):
-    def __init__(self, axis: SDF.math.Vector3):
+    def __init__(self, axis: SDF.math.Vector3, size):
         super().__init__('axis')
         self.xyz = SDF.sub_element_text(self, 'xyz',
                                         '{:e} {:e} {:e}'.format(axis[0], axis[1], axis[2]))
@@ -78,10 +80,10 @@ class JointAxis(xml.etree.ElementTree.Element):
         limit = xml.etree.ElementTree.SubElement(self, 'limit')
 
         # TODO calibrate this (load from configuration?)
-        SDF.sub_element_text(limit, 'lower', 0)#-0.853982e-01)
-        SDF.sub_element_text(limit, 'upper', 0.40e-01)#453982e-01)
-        SDF.sub_element_text(limit, 'effort', 1.765800e-01)
-        SDF.sub_element_text(limit, 'velocity', 0.000235988e+00)
+        SDF.sub_element_text(limit, 'lower', size)#-0.853982e-01)
+        SDF.sub_element_text(limit, 'upper', size)#0.40e-01)#453982e-01)
+        SDF.sub_element_text(limit, 'effort',0)# 1.765800e-01)
+        SDF.sub_element_text(limit, 'velocity',0)# 0.000235988e+00)
 
     def set_xyz(self, xyz: SDF.math.Vector3):
         self.xyz.text = '{:e} {:e} {:e}'.format(xyz[0], xyz[1], xyz[2])

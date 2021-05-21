@@ -10,7 +10,7 @@
             <max_step_size>0.005</max_step_size>
 
             <!-- Run as fast as possible -->
-            <real_time_update_rate>1000</real_time_update_rate>
+            <real_time_update_rate>0</real_time_update_rate>
 
             <ode>
                 <constraints>
@@ -26,6 +26,8 @@
                     <type>world</type>
                 </solver>
             </ode>
+	    <gravity> 0 0 -5 </gravity>
+
         </physics>
 
         <gui/>
@@ -39,5 +41,36 @@
         </include>
 
         <plugin name="revolve-world" filename="libWorldControlPlugin.so" />
+        <model name='camera'>
+          <static>true</static>
+          <pose>0 0 0 0 0 0</pose>
+          <link name='link'>
+            <visual name='visual'>
+              <geometry>
+                <box>
+                  <size>0.1 0.1 0.1</size>
+                </box>
+              </geometry>
+            </visual>
+            <sensor name='my_camera' type='camera'>
+              <camera>
+                <save enabled="true">
+                  <path>./testcam/</path>
+                </save>
+                <horizontal_fov>1.047</horizontal_fov>
+                <image>
+                  <width>1920</width>
+                  <height>1080</height>
+                </image>
+                <clip>
+                  <near>0.1</near>
+                  <far>100</far>
+                </clip>
+              </camera>
+              <always_on>1</always_on>
+              <update_rate>4</update_rate>
+            </sensor>
+          </link>
+        </model>
     </world>
 </sdf>

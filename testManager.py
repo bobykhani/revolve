@@ -44,7 +44,7 @@ async def run():
     # initialization finished
 
     # load robot file
-    path = "experiments/Babaks_experiments/data/plastic_nsga_1/data_fullevolution/plane/phenotypes/robot_98.yaml"#test_robot_nsga/robot_14262.yaml"
+    path = "experiments/Babaks_experiments/data/plastic_nsga_1/data_fullevolution/plane/phenotypes/robot_1.yaml"#test_robot_nsga/robot_14262.yaml"
     robot = RevolveBot(_id=settings.test_robot)
     robot.load_file(path, conf_type='yaml')
     robot.save_file(f'{path}.sdf', conf_type='sdf')

@@ -52,6 +52,7 @@ class RobotManager(object):
         self._positions = deque(maxlen=speed_window)
         self._orientations = deque(maxlen=speed_window)
         self._contacts = deque(maxlen=speed_window)
+        self._contacts_positions = deque(maxlen=speed_window)######new
         self._seconds = deque(maxlen=speed_window)
         self._times = deque(maxlen=speed_window)
 
@@ -145,13 +146,32 @@ class RobotManager(object):
         self._orientations.append(euler)
         self._seconds.append(age.sec)
 
-    def update_contacts(self, world, module_contacts):
-
+    def update_contacts_old(self, world, module_contacts):
         number_contacts = 0
         for position in module_contacts.position:
             number_contacts += 1
+        self._contacts.append([module_contacts.collision1,module_contacts.time,number_contacts])
+        self._contacts_positions.append([module_contacts.collision1.split('::')[0], module_contacts.collision1.split('::')[1], module_contacts.position])
 
-        self._contacts.append(number_contacts)
+    def update_contacts(self, world, module_contacts):
+        a = self.find_deq_index_by_value(module_contacts.time, 0)
+        if a:
+            for position in module_contacts.position:
+                self._contacts[a][1] += 1
+        else:
+            number_contacts = 0
+            for position in module_contacts.position:
+                number_contacts += 1
+            self._contacts.append([module_contacts.time,number_contacts])
+            #self._contacts_positions.append([module_contacts.collision1.split('::')[0], module_contacts.collision1.split('::')[1], module_contacts.position])
+
+
+    def find_deq_index_by_value(self, value, j):
+        size = self._contacts.__len__()
+        for i in range(size):
+            if self._contacts[i][j]==value:
+                return i
+        return None
 
     def age(self):
         """

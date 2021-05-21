@@ -6,10 +6,10 @@
         <grid>0</grid>
     </scene>
     <physics type="ode">
-      <max_step_size>0.005</max_step_size>
+      <max_step_size>0.003</max_step_size>
 
       <!-- Run as fast as possible -->
-      <real_time_update_rate>1000</real_time_update_rate>
+      <real_time_update_rate>800</real_time_update_rate>
       <ode>
         <constraints>
           <!-- Simulator.cpp -->
@@ -25,14 +25,17 @@
         </solver>
       </ode>
 
+      <gravity> 0 -1 -2 </gravity>
+
     </physics>
 
     <!-- A global light source -->
     <include>
       <uri>model://sun</uri>
     </include>
+
     <include>
-      <uri>model://tilted5</uri>
+      <uri>model://tol_ground</uri>
     </include>
 
     <plugin name="revolve-world" filename="libWorldControlPlugin.so" />

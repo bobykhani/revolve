@@ -1,7 +1,7 @@
 import math
 from ..render.render import Render
 from ..render.grid import Grid
-from ..revolve_module import ActiveHingeModule, BrickModule, TouchSensorModule, BrickSensorModule, CoreModule
+from ..revolve_module import ActiveHingeModule, BrickModule, TouchSensorModule, BrickSensorModule, CoreModule, LinearActuatorModule
 from ...custom_logging.logger import logger
 
 
@@ -308,6 +308,8 @@ class MeasureBody:
             if module is None:
                 module = self.body
             elif isinstance(module, ActiveHingeModule):
+                self.hinge_count += 1
+            elif isinstance(module, LinearActuatorModule):
                 self.hinge_count += 1
             elif isinstance(module, BrickModule):
                 self.brick_count += 1

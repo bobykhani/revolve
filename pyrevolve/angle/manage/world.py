@@ -216,7 +216,7 @@ class WorldManager(manage.WorldManager):
 
         # Awaiting this immediately will lock the program
         update_state_future = self.set_state_update_frequency(
-            freq=self.state_update_frequency
+            freq=1#self.state_update_frequency
         )
 
         self.battery_handler = await RequestHandler.create(
