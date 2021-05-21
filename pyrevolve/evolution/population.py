@@ -319,7 +319,7 @@ class Population:
                                                               self.conf.population_management_selector,
                                                               self.conf)
         else:
-            new_individuals = self.conf.population_management(self.individuals, new_individuals, self.conf)
+            new_individuals = self.conf.population_management(self.individuals, new_individuals)
 
         new_population = Population(self.conf, self.simulator_queue, self.analyzer_queue, self.next_robot_id)
         new_population.individuals = new_individuals

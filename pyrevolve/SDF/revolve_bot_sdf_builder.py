@@ -2,7 +2,7 @@ import math
 import xml.etree.ElementTree
 
 from pyrevolve import SDF
-from pyrevolve.revolve_bot.revolve_module import ActiveHingeModule, Orientation, BoxSlot
+from pyrevolve.revolve_bot.revolve_module import ActiveHingeModule, Orientation, BoxSlot, LinearActuatorModule
 
 
 def revolve_bot_to_sdf(robot, robot_pose, nice_format, self_collide=True):
@@ -142,7 +142,7 @@ def _module_to_sdf(module, parent_link, parent_slot: BoxSlot, parent_collision, 
     my_collision = None
 
     # ACTIVE HINGE
-    if type(module) is ActiveHingeModule:
+    if type(module) is ActiveHingeModule or type(module) is LinearActuatorModule:
         child_link = SDF.Link('{}_Leg'.format(slot_chain), self_collide=self_collide)
 
         visual_frame, collisions_frame, \

@@ -8,7 +8,7 @@ from .joint import Joint
 from .sensor import CameraSensor, TouchSensor, IMUSensor
 from . import math
 from .revolve_bot_sdf_builder import revolve_bot_to_sdf
-
+from .linear import Linear
 
 def sub_element_text(parent, name, text):
     el = xml.etree.ElementTree.SubElement(parent, name)

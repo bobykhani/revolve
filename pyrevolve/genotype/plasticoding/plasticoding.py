@@ -12,6 +12,7 @@ from pyrevolve.revolve_bot.brain.brain_nn import BrainNN
 from pyrevolve.revolve_bot.brain.brain_nn import Node
 from pyrevolve.revolve_bot.brain.brain_nn import Connection
 from pyrevolve.revolve_bot.brain.brain_nn import Params
+from pyrevolve.revolve_bot.revolve_module import LinearActuatorModule
 from ...custom_logging.logger import logger
 import random
 import math
@@ -28,6 +29,7 @@ class Alphabet(Enum):
     JOINT_VERTICAL = 'AJ2'
     BLOCK = 'B'
     SENSOR = 'ST'
+    JOINT_LINEAR = 'AJL'
 
     # MorphologyMountingCommands
     ADD_RIGHT = 'addr'
@@ -58,6 +60,7 @@ class Alphabet(Enum):
             [Alphabet.CORE_COMPONENT, []],
             [Alphabet.JOINT_HORIZONTAL, []],
             [Alphabet.JOINT_VERTICAL, []],
+            [Alphabet.JOINT_LINEAR, []],
             [Alphabet.BLOCK, []],
             [Alphabet.SENSOR, []],
         ]
@@ -286,7 +289,8 @@ class Plasticoding(Genotype):
                 if type(self.mounting_reference) == CoreModule \
                         or type(self.mounting_reference) == BrickModule:
                     slot = self.get_slot(self.morph_mounting_container).value
-                if type(self.mounting_reference) == ActiveHingeModule:
+                if type(self.mounting_reference) == ActiveHingeModule or \
+                        type(self.mounting_reference) == LinearActuatorModule:
                     slot = Orientation.NORTH.value
 
                 if self.quantity_modules < self.conf.max_structural_modules:
@@ -323,7 +327,8 @@ class Plasticoding(Genotype):
                     self.mounting_reference.children[Orientation.NORTH.value]
 
         elif symbol[self.index_symbol] == Alphabet.MOVE_LEFT \
-                and type(self.mounting_reference) is not ActiveHingeModule:
+                and type(self.mounting_reference) is not ActiveHingeModule \
+                and type(self.mounting_reference) is not LinearActuatorModule:
             if self.mounting_reference.children[Orientation.WEST.value] is not None:
                 if type(self.mounting_reference.children[Orientation.WEST.value]) is not TouchSensorModule:
                     self.mounting_reference_stack.append(self.mounting_reference)
@@ -331,7 +336,8 @@ class Plasticoding(Genotype):
                         self.mounting_reference.children[Orientation.WEST.value]
 
         elif symbol[self.index_symbol] == Alphabet.MOVE_RIGHT \
-                and type(self.mounting_reference) is not ActiveHingeModule:
+                and type(self.mounting_reference) is not ActiveHingeModule\
+                and type(self.mounting_reference) is not LinearActuatorModule:
             if self.mounting_reference.children[Orientation.EAST.value] is not None:
                 if type(self.mounting_reference.children[Orientation.EAST.value]) is not TouchSensorModule:
                     self.mounting_reference_stack.append(self.mounting_reference)
@@ -340,7 +346,8 @@ class Plasticoding(Genotype):
 
         elif (symbol[self.index_symbol] == Alphabet.MOVE_RIGHT \
               or symbol[self.index_symbol] == Alphabet.MOVE_LEFT) \
-                and type(self.mounting_reference) is ActiveHingeModule \
+                and (type(self.mounting_reference) is ActiveHingeModule
+                     or type(self.mounting_reference) is LinearActuatorModule) \
                 and self.mounting_reference.children[Orientation.NORTH.value] is not None:
             self.mounting_reference_stack.append(self.mounting_reference)
             self.mounting_reference = \
@@ -456,6 +463,8 @@ class Plasticoding(Genotype):
             rgb = [0.7, 0, 0]
         if new_module_type == Alphabet.SENSOR:
             rgb = [0.7, 0.7, 0.7]
+        if new_module_type == Alphabet.JOINT_LINEAR:
+            rgb = [0, 1, 1]
         return rgb
 
     def get_slot(self, morph_mounting_container):
@@ -528,7 +537,8 @@ class Plasticoding(Genotype):
         mount = False
         if self.mounting_reference.children[slot] is None \
                 and not (new_module_type == Alphabet.SENSOR
-                         and type(self.mounting_reference) is ActiveHingeModule):
+                         and (type(self.mounting_reference) is ActiveHingeModule
+                              or type(self.mounting_reference) is LinearActuatorModule)):
             mount = True
 
         if type(self.mounting_reference) is CoreModule \
@@ -547,6 +557,8 @@ class Plasticoding(Genotype):
                 module = ActiveHingeModule()
             if new_module_type == Alphabet.SENSOR:
                 module = TouchSensorModule()
+            if new_module_type == Alphabet.JOINT_LINEAR:
+                module = LinearActuatorModule()
 
             module.info = {}
             module.info['new_module_type'] = new_module_type
@@ -569,7 +581,8 @@ class Plasticoding(Genotype):
                         self.mounting_reference = module
 
                     if new_module_type == Alphabet.JOINT_HORIZONTAL \
-                            or new_module_type == Alphabet.JOINT_VERTICAL:
+                            or new_module_type == Alphabet.JOINT_VERTICAL\
+                            or new_module_type == Alphabet.JOINT_LINEAR:
                         self.decode_brain_node(symbol, module.id)
                 else:
                     self.quantity_modules -= 1
@@ -620,7 +633,8 @@ class Plasticoding(Genotype):
                 self.outputs_stack = [self.outputs_stack[-1]]
 
         if symbol[self.index_symbol] == Alphabet.JOINT_VERTICAL \
-                or symbol[self.index_symbol] == Alphabet.JOINT_HORIZONTAL:
+                or symbol[self.index_symbol] == Alphabet.JOINT_HORIZONTAL\
+                or symbol[self.index_symbol] == Alphabet.JOINT_LINEAR:
 
             node.layer = 'output'
             node.type = 'Oscillator'
@@ -680,7 +694,8 @@ class Plasticoding(Genotype):
         index_params = 1
 
         if symbol[index_symbol] is Alphabet.JOINT_HORIZONTAL \
-                or symbol[index_symbol] is Alphabet.JOINT_VERTICAL:
+                or symbol[index_symbol] is Alphabet.JOINT_VERTICAL\
+                or symbol[index_symbol] is Alphabet.JOINT_LINEAR:
 
             symbol[index_params] = [random.uniform(conf.weight_min, conf.weight_max),
                                     random.uniform(conf.oscillator_param_min,

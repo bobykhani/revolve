@@ -62,9 +62,88 @@ def size_penalty(robot_manager, robot):
 
     return _size_penalty
 
+# def displacement_velocity_hill(behavioural_measurements, robot):
+#
+#     if behavioural_measurements is not None:
+#         fitness = behavioural_measurements['displacement_velocity_hill']
+#
+#         if fitness == 0 or robot.phenotype._morphological_measurements.measurements_to_dict()['hinge_count'] == 0:
+#             fitness = -0.1
+#
+#         elif fitness < 0:
+#             fitness /= 10
+#
+#         return fitness
+#     else:
+#         return None
+
 def displacement_velocity_hill(robot_manager, robot, cost=False):
     fitness = measures.displacement_velocity_hill(robot_manager)
 
+    if fitness == 0 or robot.phenotype._morphological_measurements.measurements_to_dict()['hinge_count'] == 0:
+        fitness = -0.1
+
+    elif fitness < 0:
+        fitness /= 10
+
+    if cost and fitness != None:
+        _size_penalty = size_penalty(robot_manager, robot) ** 2
+        if fitness >= 0:
+            fitness = fitness * _size_penalty
+        else:
+            fitness = fitness / _size_penalty
+
+    return fitness
+
+def displacement_velocity_hill_No_penalty(robot_manager, robot, cost=False):
+    fitness = measures.displacement_velocity_hill(robot_manager)
+    return fitness
+
+
+def dvh_c_5050(robot_manager, robot, cost=False):
+    fitness = measures.displacement_velocity_hill(robot_manager)
+    contact = measures.contacts(robot_manager, robot)
+    fitness = 0.5 * fitness + 0.5 * (1/(contact+1))
+    if fitness == 0 or robot.phenotype._morphological_measurements.measurements_to_dict()['hinge_count'] == 0:
+        fitness = -0.1
+
+    elif fitness < 0:
+        fitness /= 10
+
+    if cost and fitness != None:
+        _size_penalty = size_penalty(robot_manager, robot) ** 2
+        if fitness >= 0:
+            fitness = fitness * _size_penalty
+        else:
+            fitness = fitness / _size_penalty
+
+    return fitness
+
+def dvh_c_b_33(robot_manager, robot, cost=False):
+    fitness = measures.displacement_velocity_hill(robot_manager)
+    contact = measures.contacts(robot_manager, robot)
+    balance = measures.head_balance(robot_manager)
+    fitness = 0.33 * fitness + 0.33 * (1/(contact+1)) + (0.33 * balance)
+    if fitness == 0 or robot.phenotype._morphological_measurements.measurements_to_dict()['hinge_count'] == 0:
+        fitness = -0.1
+
+    elif fitness < 0:
+        fitness /= 10
+
+    if cost and fitness != None:
+        _size_penalty = size_penalty(robot_manager, robot) ** 2
+        if fitness >= 0:
+            fitness = fitness * _size_penalty
+        else:
+            fitness = fitness / _size_penalty
+
+    return fitness
+
+def dvh_c_b_701515(robot_manager, robot, cost=False):
+    fitness = measures.displacement_velocity_hill(robot_manager)
+    contact = measures.contacts(robot_manager, robot)
+    balance = measures.head_balance(robot_manager)
+    fitness = 0.7 * fitness + 0.15 * (1/(contact+1)) + (0.15 * balance)
     if fitness == 0 or robot.phenotype._morphological_measurements.measurements_to_dict()['hinge_count'] == 0:
         fitness = -0.1
 
@@ -91,4 +170,8 @@ def floor_is_lava(robot_manager, robot, cost=False):
     else:
         fitness = _displacement_velocity_hill * _contacts
 
+    return fitness
+
+def standingHeight(robot_manager, robot, cost=False):
+    fitness = measures.standingHeight(robot_manager)
     return fitness
