@@ -4,10 +4,10 @@ import math
 # set these variables according to your experiments #
 dirpath = 'data/'
 experiments_type = [
-     'plastic_nsga'
+     'linear'
 ]
 environments = {
-                 'plastic_nsga': ['plane'],
+                 'linear': ['plane'],
                  }
 
 runs = range(1, 2)

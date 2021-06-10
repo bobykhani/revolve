@@ -424,7 +424,7 @@ class LinearActuatorModule(RevolveModule):
                           axis=SDF.math.Vector3(1, 0, 0),
                           coordinates=self.substrate_coordinates,
                           motorized=False,
-                          size=0.015)
+                          size=0.025)
 
         #joint.set_position(SDF.math.Vector3(1, 0, 0))
 

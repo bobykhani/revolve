@@ -32,7 +32,7 @@ async def run():
     # experiment params #
     num_generations = 20
     population_size = 10
-    offspring_size = 5
+    offspring_size = 10
     front = 'slaves'
 
     # environment world and z-start
