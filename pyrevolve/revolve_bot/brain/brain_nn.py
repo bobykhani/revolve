@@ -155,7 +155,6 @@ class Connection:
         self.src = yaml_object_connection['src']
         self.weight = yaml_object_connection['weight']
 
-
 class Params:
     def __init__(self):
         self.period = None

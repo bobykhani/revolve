@@ -100,6 +100,11 @@ class Alphabet(Enum):
             [Alphabet.MOVE_REF_O, []]
         ]
 
+    @staticmethod
+    def linear_actuator_change_commands():
+        return [
+            [Alphabet.MUTATE_LIN, []],
+        ]
 
 class Plasticoding(Genotype):
     """
@@ -294,9 +299,7 @@ class Plasticoding(Genotype):
                     slot = Orientation.NORTH.value
 
                 if self.quantity_modules < self.conf.max_structural_modules:
-                    self.new_module(slot,
-                                    symbol[self.index_symbol],
-                                    symbol)
+                    self.new_module(slot, symbol[self.index_symbol], symbol)
 
             if [symbol[self.index_symbol], []] in Alphabet.morphology_moving_commands():
                 self.move_in_body(symbol)
@@ -306,6 +309,9 @@ class Plasticoding(Genotype):
 
             if [symbol[self.index_symbol], []] in Alphabet.controller_moving_commands():
                 self.decode_brain_moving(symbol)
+            if symbol[self.index_symbol] is Alphabet.JOINT_LINEAR:
+                print("test")
+
 
         self.add_imu_nodes()
         logger.info('Robot ' + str(self.id) + ' was late-developed.')
@@ -532,7 +538,7 @@ class Plasticoding(Genotype):
                                            coordinates[1]] = module.id
             return False
 
-    def new_module(self, slot, new_module_type, symbol):
+    def new_module(self, slot, new_module_type, symbol, size=None):
 
         mount = False
         if self.mounting_reference.children[slot] is None \
@@ -559,6 +565,7 @@ class Plasticoding(Genotype):
                 module = TouchSensorModule()
             if new_module_type == Alphabet.JOINT_LINEAR:
                 module = LinearActuatorModule()
+                module.size = symbol[1][0]
 
             module.info = {}
             module.info['new_module_type'] = new_module_type
@@ -591,6 +598,9 @@ class Plasticoding(Genotype):
                 self.morph_mounting_container = None
                 module.id = self.mounting_reference.id+'s'+str(slot)
                 self.decode_brain_node(symbol, module.id)
+
+ #   def decode_linear_size(self, symbol, part_id):
+  #      param = self.
 
     def decode_brain_node(self, symbol, part_id):
 
@@ -633,8 +643,8 @@ class Plasticoding(Genotype):
                 self.outputs_stack = [self.outputs_stack[-1]]
 
         if symbol[self.index_symbol] == Alphabet.JOINT_VERTICAL \
-                or symbol[self.index_symbol] == Alphabet.JOINT_HORIZONTAL\
-                or symbol[self.index_symbol] == Alphabet.JOINT_LINEAR:
+                or symbol[self.index_symbol] == Alphabet.JOINT_HORIZONTAL:#\
+                #or symbol[self.index_symbol] == Alphabet.JOINT_LINEAR:
 
             node.layer = 'output'
             node.type = 'Oscillator'
@@ -705,6 +715,9 @@ class Plasticoding(Genotype):
                                                    conf.oscillator_param_max),
                                     random.uniform(conf.oscillator_param_min,
                                                    conf.oscillator_param_max)]
+
+        if symbol[index_symbol] is Alphabet.JOINT_LINEAR:
+            symbol[index_params] = [random.randint(0, 25)/1000]
 
         if symbol[index_symbol] is Alphabet.SENSOR \
                 or symbol[index_symbol] is Alphabet.ADD_EDGE \

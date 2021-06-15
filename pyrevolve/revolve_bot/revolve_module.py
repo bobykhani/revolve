@@ -1,6 +1,7 @@
 """
 Class containing the body parts to compose a Robogen robot
 """
+import random
 from collections import OrderedDict
 from enum import Enum
 
@@ -52,6 +53,7 @@ class RevolveModule:
     INERTIA = None
 
     def __init__(self):
+        self.size = None
         self.id = None
         self.orientation = None
         self.rgb = None  # RevolveModule.DEFAULT_COLOR
@@ -94,6 +96,10 @@ class RevolveModule:
             module.orientation = yaml_object['orientation']
         except KeyError:
             module.orientation = 0
+        try:
+            module.size = yaml_object['size']
+        except KeyError:
+            module.size = 0
 
         try:
             module.rgb = (
@@ -120,6 +126,9 @@ class RevolveModule:
         yaml_dict_object['id'] = self.id
         yaml_dict_object['type'] = self.TYPE
         yaml_dict_object['orientation'] = self.orientation
+
+        if self.TYPE == 'LinearActuator':
+            yaml_dict_object['size'] = self.size
 
         if self.rgb is not None:
             yaml_dict_object['params'] = {
@@ -424,7 +433,7 @@ class LinearActuatorModule(RevolveModule):
                           axis=SDF.math.Vector3(1, 0, 0),
                           coordinates=self.substrate_coordinates,
                           motorized=False,
-                          size=0.025)
+                          size=self.size)#random.randint(0, 25)/1000)#0.025)#max=0.025 min=0
 
         #joint.set_position(SDF.math.Vector3(1, 0, 0))
 
