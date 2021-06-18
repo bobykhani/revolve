@@ -142,7 +142,7 @@ def _module_to_sdf(module, parent_link, parent_slot: BoxSlot, parent_collision, 
     my_collision = None
 
     # ACTIVE HINGE
-    if type(module) is ActiveHingeModule:
+    if type(module) is ActiveHingeModule or type(module) is LinearActuatorModule:
         child_link = SDF.Link('{}_Leg'.format(slot_chain), self_collide=self_collide)
 
         visual_frame, collisions_frame, \

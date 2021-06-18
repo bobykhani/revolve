@@ -599,9 +599,6 @@ class Plasticoding(Genotype):
                 module.id = self.mounting_reference.id+'s'+str(slot)
                 self.decode_brain_node(symbol, module.id)
 
- #   def decode_linear_size(self, symbol, part_id):
-  #      param = self.
-
     def decode_brain_node(self, symbol, part_id):
 
         self.quantity_nodes += 1
