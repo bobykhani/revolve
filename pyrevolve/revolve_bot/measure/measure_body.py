@@ -53,6 +53,10 @@ class MeasureBody:
         self.free_slots = None
         # Maximum number of modules allowed (sensors excluded)
         self.max_permitted_modules = None
+        # number of bones
+        self.bone_count = None
+        # sum of bones size
+        self.bone_size = 0
 
     def count_branching_bricks(self, module=None, init=True):
         """
@@ -119,6 +123,11 @@ class MeasureBody:
                 self.extensiveness += 1
         except Exception as e:
             logger.exception(f'Exception: {e}. \nFailed calculating extremities or extensiveness')
+
+    def measure_bone(self):
+        if self.absolute_size is None:
+            self.calculate_count()
+        return self.bone_count
 
     def measure_limbs(self):
         """
@@ -305,18 +314,23 @@ class MeasureBody:
                 self.brick_count = 0
                 self.brick_sensor_count = 0
                 self.touch_sensor_count = 0
+                self.bone_count = 0
             if module is None:
                 module = self.body
             elif isinstance(module, ActiveHingeModule):
                 self.hinge_count += 1
             elif isinstance(module, LinearActuatorModule):
                 self.hinge_count += 1
+                self.bone_count += 1
+                self.bone_size += module.size
             elif isinstance(module, BrickModule):
                 self.brick_count += 1
             elif isinstance(module, BrickSensorModule):
                 self.brick_sensor_count += 1
             elif isinstance(module, TouchSensorModule):
                 self.touch_sensor_count += 1
+#            elif isinstance(module, LinearActuatorModule):
+#                self.bone_count += 1
 
             if module.has_children():
                 for core_slot, child_module in module.iter_children():
@@ -354,6 +368,7 @@ class MeasureBody:
         self.measure_symmetry()
         self.measure_branching()
         self.measure_sensors()
+        self.measure_bone()
         return self.measurements_to_dict()
 
     def measurements_to_dict(self):
@@ -380,7 +395,9 @@ class MeasureBody:
             'height': self.height,
             'absolute_size': self.absolute_size,
             'sensors': self.sensors,
-            'symmetry': self.symmetry
+            'symmetry': self.symmetry,
+            'bone_count': self.bone_count,
+            'bone_size_avg': self.bone_size/(self.bone_count+0.0000001)
         }
 
     def __repr__(self):

@@ -21,8 +21,8 @@ import itertools
 import sys
 import json
 
-class Alphabet(Enum):
 
+class Alphabet(Enum):
     # Modules
     CORE_COMPONENT = 'C'
     JOINT_HORIZONTAL = 'AJ1'
@@ -53,6 +53,9 @@ class Alphabet(Enum):
     # ControllerMovingCommands
     MOVE_REF_S = 'brainmoveFTS'
     MOVE_REF_O = 'brainmoveTTS'
+
+    # BonesChangingCommands
+    MUTATE_BONE = 'boneperturb'
 
     @staticmethod
     def modules():
@@ -101,10 +104,11 @@ class Alphabet(Enum):
         ]
 
     @staticmethod
-    def linear_actuator_change_commands():
+    def bone_change_commands():
         return [
-            [Alphabet.MUTATE_LIN, []],
+            [Alphabet.MUTATE_BONE, []],
         ]
+
 
 class Plasticoding(Genotype):
     """
@@ -136,6 +140,8 @@ class Plasticoding(Genotype):
         self.inputs_stack = []
         self.outputs_stack = []
         self.edges = {}
+        self.bone_change_stack = []
+        self.path = []
 
     def clone(self):
         return copy.deepcopy(self)
@@ -148,7 +154,7 @@ class Plasticoding(Genotype):
             line_array = line.split(' ')
             repleceable_symbol = Alphabet(line_array[0])
             self.grammar[repleceable_symbol] = []
-            rule = line_array[1:len(line_array)-1]
+            rule = line_array[1:len(line_array) - 1]
             for symbol_array in rule:
                 symbol_array = symbol_array.split('_')
                 symbol = Alphabet(symbol_array[0])
@@ -226,7 +232,7 @@ class Plasticoding(Genotype):
 
                     # actually...for now, it is safer to just express the first rule
                     # because this could result in tiny robots, which could be exploited in the hill
-                    #grammar[letter] = self.grammar[letter][0][1]
+                    # grammar[letter] = self.grammar[letter][0][1]
                 else:
                     # if multiple clauses are true, all get expressed
                     for idx in range(0, len(true_clauses)):
@@ -258,9 +264,9 @@ class Plasticoding(Genotype):
                         self.intermediate_phenotype.pop(position)
                         # replaces it by its production rule
                         for ii in range(0, len(grammar[symbol[self.index_symbol]])):
-                            self.intermediate_phenotype.insert(position+ii,
+                            self.intermediate_phenotype.insert(position + ii,
                                                                grammar[symbol[self.index_symbol]][ii])
-                    position = position+ii+1
+                    position = position + ii + 1
                 else:
                     position = position + 1
 
@@ -269,7 +275,8 @@ class Plasticoding(Genotype):
     def late_development(self):
 
         self.phenotype = RevolveBot()
-        self.phenotype._id = self.id if type(self.id) == str and self.id.startswith("robot") else "robot_{}".format(self.id)
+        self.phenotype._id = self.id if type(self.id) == str and self.id.startswith("robot") else "robot_{}".format(
+            self.id)
         self.phenotype._brain = BrainNN()
 
         for symbol in self.intermediate_phenotype:
@@ -309,9 +316,9 @@ class Plasticoding(Genotype):
 
             if [symbol[self.index_symbol], []] in Alphabet.controller_moving_commands():
                 self.decode_brain_moving(symbol)
-            if symbol[self.index_symbol] is Alphabet.JOINT_LINEAR:
+            if symbol[self.index_symbol] is Alphabet.MUTATE_BONE:
                 print("test")
-
+                self.bone_change_stack.append(symbol)
 
         self.add_imu_nodes()
         logger.info('Robot ' + str(self.id) + ' was late-developed.')
@@ -342,7 +349,7 @@ class Plasticoding(Genotype):
                         self.mounting_reference.children[Orientation.WEST.value]
 
         elif symbol[self.index_symbol] == Alphabet.MOVE_RIGHT \
-                and type(self.mounting_reference) is not ActiveHingeModule\
+                and type(self.mounting_reference) is not ActiveHingeModule \
                 and type(self.mounting_reference) is not LinearActuatorModule:
             if self.mounting_reference.children[Orientation.EAST.value] is not None:
                 if type(self.mounting_reference.children[Orientation.EAST.value]) is not TouchSensorModule:
@@ -591,6 +598,18 @@ class Plasticoding(Genotype):
                             or new_module_type == Alphabet.JOINT_VERTICAL:#\
                             #or new_module_type == Alphabet.JOINT_LINEAR:
                         self.decode_brain_node(symbol, module.id)
+                    if new_module_type == Alphabet.JOINT_LINEAR:
+                        try:
+                            sym = self.bone_change_stack.pop()
+                        except:
+                            print("Bone stack is empty")
+                            sym = None
+                        if (sym is not None):
+                            module.size += float(sym[self.index_params][0])
+                            if module.size > 0.025:
+                                module.size = 0.025
+                            if module.size < 0:
+                                module.size = 0
                 else:
                     self.quantity_modules -= 1
             else:
@@ -631,7 +650,7 @@ class Plasticoding(Genotype):
                     connection.src = node.id
                     connection.dst = self.outputs_stack[output_node].id
 
-                    if output_node == len(self.outputs_stack)-1:
+                    if output_node == len(self.outputs_stack) - 1:
                         connection.weight = node.weight
                     else:
                         connection.weight = float(self.outputs_stack[output_node].weight)
@@ -640,8 +659,8 @@ class Plasticoding(Genotype):
                 self.outputs_stack = [self.outputs_stack[-1]]
 
         if symbol[self.index_symbol] == Alphabet.JOINT_VERTICAL \
-                or symbol[self.index_symbol] == Alphabet.JOINT_HORIZONTAL:#\
-                #or symbol[self.index_symbol] == Alphabet.JOINT_LINEAR:
+                or symbol[self.index_symbol] == Alphabet.JOINT_HORIZONTAL:  # \
+            # or symbol[self.index_symbol] == Alphabet.JOINT_LINEAR:
 
             node.layer = 'output'
             node.type = 'Oscillator'
@@ -671,7 +690,7 @@ class Plasticoding(Genotype):
                     connection = Connection()
                     connection.src = self.inputs_stack[input_node].id
                     connection.dst = node.id
-                    if input_node == len(self.inputs_stack)-1:
+                    if input_node == len(self.inputs_stack) - 1:
                         connection.weight = node.weight
                     else:
                         connection.weight = float(self.inputs_stack[input_node].weight)
@@ -679,12 +698,11 @@ class Plasticoding(Genotype):
                     self.phenotype._brain.connections.append(connection)
                 self.inputs_stack = [self.inputs_stack[-1]]
 
-
         self.phenotype._brain.nodes[node.id] = node
 
     def add_imu_nodes(self):
         for p in range(1, 7):
-            id = 'node-core'+str(p)
+            id = 'node-core' + str(p)
             node = Node()
             node.layer = 'input'
             node.type = 'Input'
@@ -702,8 +720,8 @@ class Plasticoding(Genotype):
         index_params = 1
 
         if symbol[index_symbol] is Alphabet.JOINT_HORIZONTAL \
-                or symbol[index_symbol] is Alphabet.JOINT_VERTICAL:#\
-                #or symbol[index_symbol] is Alphabet.JOINT_LINEAR:
+                or symbol[index_symbol] is Alphabet.JOINT_VERTICAL:  # \
+            # or symbol[index_symbol] is Alphabet.JOINT_LINEAR:
 
             symbol[index_params] = [random.uniform(conf.weight_min, conf.weight_max),
                                     random.uniform(conf.oscillator_param_min,
@@ -714,24 +732,24 @@ class Plasticoding(Genotype):
                                                    conf.oscillator_param_max)]
 
         if symbol[index_symbol] is Alphabet.JOINT_LINEAR:
-            symbol[index_params] = [random.randint(0, 25)/1000]
+            symbol[index_params] = [random.randint(0, 25) / 1000]
 
         if symbol[index_symbol] is Alphabet.SENSOR \
                 or symbol[index_symbol] is Alphabet.ADD_EDGE \
                 or symbol[index_symbol] is Alphabet.LOOP:
-
             symbol[index_params] = [random.uniform(conf.weight_min, conf.weight_max)]
 
         if symbol[index_symbol] is Alphabet.MUTATE_EDGE \
                 or symbol[index_symbol] is Alphabet.MUTATE_AMP \
                 or symbol[index_symbol] is Alphabet.MUTATE_PER \
                 or symbol[index_symbol] is Alphabet.MUTATE_OFF:
-
             symbol[index_params] = [random.normalvariate(0, 1)]
+
+        if symbol[index_symbol] is Alphabet.MUTATE_BONE:
+            symbol[index_params] = [random.normalvariate(0, 25) / 1000]
 
         if symbol[index_symbol] is Alphabet.MOVE_REF_S \
                 or symbol[index_symbol] is Alphabet.MOVE_REF_O:
-
             intermediate_temp = random.normalvariate(0, 1)
             final_temp = random.normalvariate(0, 1)
             symbol[index_params] = [math.ceil(math.sqrt(math.pow(intermediate_temp, 2))),

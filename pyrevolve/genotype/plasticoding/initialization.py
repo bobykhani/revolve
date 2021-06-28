@@ -44,6 +44,8 @@ def _generate_random_grammar(conf):
                     Alphabet.modules()[symbol_module], conf),
                 Plasticoding.build_symbol(
                     Alphabet.morphology_moving_commands()[symbol_morph_moving], conf),
+                Plasticoding.build_symbol(
+                    Alphabet.bone_change_commands()[0], conf),
             ])
     return grammar
 
@@ -91,6 +93,8 @@ def _generate_random_plastic_grammar(conf):
                     0, len(Alphabet.controller_moving_commands()) - 1)
                 symbol_changing = random.randint(
                     0, len(Alphabet.controller_changing_commands()) - 1)
+                symbol_changing_bone = 0#random.randint(
+                    #0, 1) #50%
 
                 grammar[symbol[0]][-1][1].extend([
                     Plasticoding.build_symbol(
@@ -103,6 +107,8 @@ def _generate_random_plastic_grammar(conf):
                         Alphabet.modules()[symbol_module], conf),
                     Plasticoding.build_symbol(
                         Alphabet.morphology_moving_commands()[symbol_morph_moving], conf),
+                    Plasticoding.build_symbol(
+                        Alphabet.bone_change_commands()[symbol_changing_bone], conf),
                 ])
 
     return grammar
